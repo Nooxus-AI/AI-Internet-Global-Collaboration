@@ -132,4 +132,4 @@ All design concepts, architectural blueprints, and protocol specifications conta
 
 If you need to cite the viewpoints of this library in academic papers, business BPs, or technical evangelism, we recommend (but do not force) retaining this repository link to track architectural sourcing: `https://github.com/Nooxus-AI/AI-Internet-Global-Collaboration`
 
-**Initiated by:** Glools Guan (**Guan Xingmin**) `RobertGlools@gmail.com` & The Nooxus-AI Team `ai@nooxus.com`
+**Initiated by:** Glools Guan `GloolsGuan@gmail.com` & The Nooxus-AI Team `ai@nooxus.com`

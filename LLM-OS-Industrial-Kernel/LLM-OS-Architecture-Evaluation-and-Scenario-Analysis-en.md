@@ -10,7 +10,7 @@
 | Core Primitives           | TaskUnit-NOO / Exchange-NOO                     | Task / Queue / Worker                           |
 | Trust Model               | Signature Chain + Chancery Monopoly             | Centralized Decision-making at Scheduling Layer |
 | Scheduling Layer          | Distributed Verification (L1/L2)                | Centralized Dispatcher                          |
-| Latency Target            | **<1ms** (L1 Edge Right Confirmation)           | 10-100ms (Polling + Network)                    |
+| Latency Target            | **<10-100ms** (L1 Edge Right Confirmation)      | 10-100ms (Polling + Network)                    |
 | Determinism Guarantee     | Logic Lock + Hardware-level Signature           | Timeout Retry + Queue Re-entry                  |
 | Cross-domain Capability   | L2 Global Chancery + Agreement Translation      | Requires Additional Design                      |
 | Auditability              | Exchange-NOO Full Signature Chain               | Log Recording (Tamperable)                      |
@@ -147,7 +147,7 @@ Worker Complete → Report to L1 Chancery → 5-Step Verification → ECDSA Sign
      │                    │                      │                  │                 │                       │
     <1ms                <1ms                  <0.5ms             <0.3ms            <1ms                   <1ms
                                                                                               (Persistent Connection Push)
-Total: <5ms (Target <1ms for core CPU time)
+Total: <5ms (Target <10ms for core CPU time)
 ```
 
 **Deep Analysis:**
@@ -159,7 +159,7 @@ Latency in the self-developed architecture primarily comes from:
 
 LLM-OS latency advantages come from:
 1. **Push Model:** Exchange-NOO actively pushed via persistent connections, no polling required
-2. **Edge Processing:** L1 Chancery deployed within the factory intranet, network latency <1ms
+2. **Edge Processing:** L1 Chancery deployed within the factory intranet, network latency <100ms
 3. **Minimalist Verification:** L1 layer performs no semantic reasoning, only hash comparison and signing; CPU time is tightly controlled
 
 **However, LLM-OS incurs costs:**
@@ -215,7 +215,7 @@ However, LLM-OS has an advantage during network partitions that self-developed a
 | Scenario Requirement                                   | Self-Developed Performance           | LLM-OS Performance              |
 | ------------------------------------------------------ | ------------------------------------ | ------------------------------- |
 | Line A completion → Line B activation                  | 20-50ms, acceptable                  | <5ms, superior                  |
-| Safety interlock (temp exceeds limit → emergency stop) | Latency insufficiently deterministic | L1 hard rules, <1ms             |
+| Safety interlock (temp exceeds limit → emergency stop) | Latency insufficiently deterministic | L1 hard rules, <10-100ms        |
 | Offline autonomy                                       | Depends on Redis, may fail           | Exchange-NOO offline verifiable |
 | Heterogeneous device protocol adaptation               | Requires adaptation layer            | Enterprise-NOO unified identity |
 

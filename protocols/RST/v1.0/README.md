@@ -4,9 +4,12 @@
 
 **智能体网络的主权信令底层协议。**
 
+<br />
+
 **Author:** Nooxus-AI Team <ai@nooxus.com>
 
 <br />
+
 ------
 
 ### 📖 Abstract / 摘要
